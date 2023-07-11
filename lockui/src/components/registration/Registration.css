@@ -1,0 +1,66 @@
+.RegisterComponent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: black;
+}
+  
+.RegisterForm {
+    width: 500px;
+    display: grid;
+    gap: 10px; /* Adds some spacing between elements */
+    color: white;
+    text-align: center;
+}
+  
+.RegisterForm h1 {
+    margin: 0; /* Removes margin around the heading */
+}
+  
+.RegisterForm label {
+    display: block; /* Makes the labels stack vertically */
+    margin-bottom: 5px; /* Adds spacing below each label */
+}
+  
+.RegisterForm .inputBox {
+    width: 400px; /* Makes the input fields span the entire width of the form */
+    padding: 5px; /* Adds some padding to the input fields */
+}
+
+.radio{
+    width: auto;
+}
+
+.submitBtn {
+    margin-top: 10px; /* Adds spacing between the form fields and the button */
+    display: flex;
+    justify-content: center;
+}
+
+label{
+    position: absolute;
+    clip: rect(1px, 1px, 1px, 1px); /* Visually hide the label */
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+.inpBox{
+    border-radius: 5px;
+}
+
+.RegisterForm .radio {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.radioContain{
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+}
+
+.radioContain div{
+    padding-right: 20px;
+}
