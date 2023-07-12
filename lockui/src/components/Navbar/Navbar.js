@@ -33,18 +33,7 @@ function Navbar() {
                   }
                   onClick={closeMobileMenu}
                 >
-                  Home
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink
-                  to="/about"
-                  className={({ isActive }) =>
-                    "nav-links" + (isActive ? " activated" : "")
-                  }
-                  onClick={closeMobileMenu}
-                >
-                  About
+                  Authenticate
                 </NavLink>
               </li>
               <li className="nav-item">
