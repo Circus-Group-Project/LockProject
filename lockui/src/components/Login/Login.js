@@ -14,7 +14,6 @@ const Login = () => {
             <input className='inpBox'
             type="text"
             placeholder="Enter your user name"
-            required
             />
         </div>
         <div>
@@ -22,11 +21,10 @@ const Login = () => {
             <input className='inpBox'
             type="password"
             placeholder="Enter your password"
-            required
             />
         </div>
         <div className="submitBtn">
-            <button type="submit">Submit</button>
+            <button>Submit</button>
         </div>
         <h3>New to the site? <Link to="/register"><span>Register</span></Link></h3>
       </form>
