@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import Registration from './routes/RegistrationRoute';
 import Contact from './routes/ContactRoute';
 import Profile from './routes/ProfileRoute';
+import ProfileAdmin from './routes/AdminProfileRoute';
 
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>
@@ -14,6 +15,7 @@ createRoot(document.getElementById('root')).render(
         <Route path="/register" element={<Registration />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/adminProfile" element={<ProfileAdmin />} />
       </Routes>
   </BrowserRouter>
 );

@@ -1,31 +1,24 @@
 import React, { useState } from 'react';
 import './Profile.css';
 import { BsFilePerson } from 'react-icons/bs';
-import { CiEdit } from 'react-icons/ci';
-import { MdDeleteForever, MdOutlineAddBox } from 'react-icons/md';
+import { MdOutlineAddBox } from 'react-icons/md';
 import { AiFillCloseSquare } from 'react-icons/ai';
 
 const Profile = () => {
-  const [showAddPasswordDialog, setShowAddPasswordDialog] = useState(false);
-  const [showAddLockDialog, setShowAddLockDialog] = useState(false);
-  const [showEditPasswordDialog, setShowEditPasswordDialog] = useState(false);
+  const [showAddDialog, setShowAddDialog] = useState(false);
+  const [showAssignDialog, setShowAssignDialog] = useState(false);
 
-  const openAddPasswordDialog = () => {
-    setShowAddPasswordDialog(true);
+  const openAddDialog = () => {
+    setShowAddDialog(true);
   };
 
-  const openAddLockDialog = () => {
-    setShowAddLockDialog(true);
-  };
-
-  const openEditPasswordDialog = () => {
-    setShowEditPasswordDialog(true);
+  const openAssignDialog = () => {
+    setShowAssignDialog(true);
   };
 
   const closeDialogs = () => {
-    setShowAddPasswordDialog(false);
-    setShowAddLockDialog(false);
-    setShowEditPasswordDialog(false);
+    setShowAddDialog(false);
+    setShowAssignDialog(false);
   };
 
   return (
@@ -44,9 +37,7 @@ const Profile = () => {
                 <span className='Desc'>Description</span>
               </p>
               {/* Admin account will have a different description: This is the admin account that will be able to create devices */}
-              <p>
-                This User has <span>20</span> devices associated with his account
-              </p>
+              <p>This is the admin account that will be able to create devices</p>
             </div>
           </div>
         </div>
@@ -54,71 +45,49 @@ const Profile = () => {
           <div className='DeviceContainerContent'>
             <div className='DeviceContainerHeader'>
               <div className='headingDevice'>
-                <h3>Existing Passwords</h3>
-              </div>
-              <div className='dropdownDeviceSelection'>
-                <select>
-                  <option value='option1'>Device 1</option>
-                  <option value='option2'>Device 2</option>
-                  <option value='option3'>Device 3</option>
-                </select>
+                <h3>Existing Devices</h3>
               </div>
             </div>
             <div className='existingDeviceContainer'>
               <table className='existingPasswordsTable'>
                 <thead>
                   <tr>
-                    <th>Password</th>
-                    <th>Devices</th>
-                    <th>Actions</th>
+                    <th>Username</th>
+                    <th>Devices Owned</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>Password 1</td>
+                    <td>Username 1</td>
                     <td>Device 1, Device 2, Device 3</td>
-                    <td>
-                      <CiEdit className='editIcon' onClick={openEditPasswordDialog} />
-                      <MdDeleteForever className='deleteIcon' />
-                    </td>
                   </tr>
                   <tr>
-                    <td>Password 2</td>
+                    <td>Username 2</td>
                     <td>Device 4, Device 5</td>
-                    <td>
-                      <CiEdit className='editIcon' onClick={openEditPasswordDialog} />
-                      <MdDeleteForever className='deleteIcon' />
-                    </td>
                   </tr>
                 </tbody>
               </table>
             </div>
             <div className='addContainers'>
               <div className='NewPassword'>
-                <p> Add New Password </p>
-                <MdOutlineAddBox className='addBtn' onClick={openAddPasswordDialog} />
+                <p> Add New Device </p>
+                <MdOutlineAddBox className='addBtn' onClick={openAddDialog} />
               </div>
               <div className='NewLock'>
-                <p> Add New Lock </p>
-                <MdOutlineAddBox className='addBtn' onClick={openAddLockDialog} />
+                <p> Assign Device </p>
+                <MdOutlineAddBox className='addBtn' onClick={openAssignDialog} />
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      {showAddPasswordDialog && (
+      {showAddDialog && (
         <div className='dialogOverlay'>
           <div className='dialogContainer'>
             <AiFillCloseSquare className='closeIcon' onClick={closeDialogs} />
-            <h3>Add New Password</h3>
+            <h3>Add New Device</h3>
             <div className='dialogContent'>
-              <div className='dropdownContainer'>
-                <select id='userDropdown'>
-                  <option value='user1'>Device 1</option>
-                  <option value='user2'>Device 2</option>
-                </select>
-              </div>
               <input type='text' placeholder='Enter device name' />
               <div className='buttonContainer'>
                 <button className='dialogButton'>Yes</button>
@@ -129,41 +98,26 @@ const Profile = () => {
         </div>
       )}
 
-      {showAddLockDialog && (
+      {showAssignDialog && (
         <div className='dialogOverlay'>
           <div className='dialogContainer'>
             <AiFillCloseSquare className='closeIcon' onClick={closeDialogs} />
-            <h3>Add New Lock</h3>
+            <h3>Assign Device</h3>
             <div className='dialogContent'>
               <div className='dropdownContainer'>
                 <select id='userDropdown'>
                   <option value='user1'>User 1</option>
                   <option value='user2'>User 2</option>
+                  {/* Add more options as needed */}
                 </select>
               </div>
-              <div className='buttonContainer'>
-                <button className='dialogButton'>Yes</button>
-                <button className='dialogButton'>No</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {showEditPasswordDialog && (
-        <div className='dialogOverlay'>
-          <div className='dialogContainer'>
-            <AiFillCloseSquare className='closeIcon' onClick={closeDialogs} />
-            <h3>Edit Password</h3>
-            <div className='dialogContent'>
               <div className='dropdownContainer'>
-                <select id='userDropdown'>
-                  <option value='user1'>Device 1</option>
-                  <option value='user2'>Device 2</option>
-                  <option value='user2'>Device 3</option>
+                <select id='deviceDropdown'>
+                  <option value='device1'>Device 1</option>
+                  <option value='device2'>Device 2</option>
+                  {/* Add more options as needed */}
                 </select>
               </div>
-              <input type='text' placeholder='Enter new password' />
               <div className='buttonContainer'>
                 <button className='dialogButton'>Yes</button>
                 <button className='dialogButton'>No</button>
